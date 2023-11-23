@@ -15,6 +15,13 @@ def showUsd():
 
 def showGbp():
 
+    response = requests.get(url)  # sending request to url
+    jsonResponse = response.json()  # saving response as JSON
+    time = jsonResponse["time"]["updated"]  # getting time from response
+    code = jsonResponse["bpi"]["GBP"]["code"]  # getting currency code from response
+    rate = jsonResponse["bpi"]["GBP"]["rate"]  # getting price in USD from response.
+
+    print(time, code, rate)
 
 
 def showEuro():
